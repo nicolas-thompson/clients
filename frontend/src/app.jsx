@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Clients from "./pages/Clients";
+import ClientList from "./pages/ClientList";
 import { useState } from 'react';
 
 const App = () => {
-  const [clients, setClients] = useState({});
+  const [clients, setClients] = useState(false);
 
   useEffect(() => {
 
@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div>
       <h1>EVPro Full-stack Test</h1>
-      <Clients clients={clients} />
+      {clients && <ClientList clients={clients} />}
     </div>
   );
 };
