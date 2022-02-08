@@ -5,9 +5,7 @@ import Client from "../components/Client";
 const ClientList = props => {
 
   return <React.Fragment>
-    <ul>
-      {props.clients.map(client => <Client key={client._id} client={client} />)}
-    </ul>
+    {props.clients.map(client => <Client key={client._id} client={client} />)}
   </React.Fragment>
 }
 
