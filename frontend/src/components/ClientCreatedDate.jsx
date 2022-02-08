@@ -1,4 +1,5 @@
 import React from "react";
+import css from "./ClientCreatedDate.module.css";
 
 const ClientCreatedDate = props => {
 
@@ -7,10 +8,10 @@ const ClientCreatedDate = props => {
   const year = new Date(props.date).toLocaleString('en-GB', { year: 'numeric' });
 
   return (
-    <div>
-      <div>{day}</div>
-      <div>{month}</div>
-      <div>{year}</div>
+    <div className={css['client-created-date']}>
+      <div className={css['client-created-date__day']}>{day}</div>
+      <div className={css['client-created-date__month']}>{month}</div>
+      <div className={css['client-created-date__year']}>{year}</div>
     </div>
   )
 }
