@@ -1,20 +1,13 @@
 import React from "react";
 import css from "./Client.module.css";
+import ClientCreatedDate from "./ClientCreatedDate";
 
 const Client = props => {
-
-  const day = new Date(props.client.createdDate).toLocaleString('en-GB', { day: '2-digit' });
-  const month = new Date(props.client.createdDate).toLocaleString('en-GB', { month: 'long' });
-  const year = new Date(props.client.createdDate).toLocaleString('en-GB', { year: 'numeric' });
 
   return (
 
     <div className={css.client}>
-      <div>
-        <div>{day}</div>
-        <div>{month}</div>
-        <div>{year}</div>
-      </div>
+      <ClientCreatedDate date={props.client.createdDate} />
       <div className={css.client__description}>
         <h2>{props.client.name}</h2>
         <div>{props.client.email}</div>
