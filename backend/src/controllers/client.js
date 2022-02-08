@@ -1,6 +1,6 @@
 exports.getClients = (req, res, next) => {
   res.status(200).json({
-    clients: [{ name: 'Nicolas Thompson', email: 'mail@nicolasthompson.com', createdDate: new Date(), company: 'Thompson Software Ltd' }]
+    clients: [{ _id: 1, name: 'Nicolas Thompson', email: 'mail@nicolasthompson.com', createdDate: new Date(), company: 'Thompson Software Ltd' }]
   });
 };
 
