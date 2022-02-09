@@ -12,6 +12,6 @@ exports.createClient = (req, res, next) => {
 
   res.status(201).json({
     message: 'Post created successfully!',
-    post: { id: new Date().toISOString(), name: name, email: email, createdDate: createdDate, company: company }
+    client: { _id: new Date().toISOString(), name: name, email: email, createdDate: createdDate, company: company }
   });
 };

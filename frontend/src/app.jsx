@@ -23,9 +23,29 @@ const App = () => {
   }, []);
 
   const addClientHandler = (client) => {
-    setClients((prevState) => [...prevState, client]);
-    console.log(clients);
-  }
+    fetch('http://localhost:3001/client', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: client.name,
+        email: client.email,
+        company: client.company,
+
+      })
+    }).then(res => {
+      if (res.status !== 200 && res.status !== 201) {
+        throw new Error('Creating a new client failed');
+      }
+      return res.json();
+    }).then(resData => {
+      setClients((prevState) => [...prevState, resData.client]);
+      console.log(clients);
+    }).catch(err => {
+      console.log(err)
+    });
+  };
 
   return (
     <div>

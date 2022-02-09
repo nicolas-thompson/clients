@@ -8,7 +8,6 @@ const NewClientForm = props => {
     _id: Math.random().toString(),
     name: "",
     email: "",
-    createdDate: new Date(),
     company: "",
   });
 
