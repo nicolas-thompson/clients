@@ -3,8 +3,16 @@ import React from "react";
 import NewClientForm from "./NewClientForm";
 
 const NewClient = props => {
+  const onSaveClientDataHandler = (enteredClientData) => {
+    const clientData = {
+      ...enteredClientData,
+      id: Math.random().toString()
+    }
+    props.onAddClient(clientData);
+  };
+
   return <div>
-    <NewClientForm />
+    <NewClientForm onSaveClientData={onSaveClientDataHandler} />
   </div>
 };
 

@@ -20,12 +20,17 @@ const App = () => {
       })
       .catch(err => { console.log(err) });
 
-  }, [])
+  }, []);
+
+  const addClientHandler = (client) => {
+    setClients((prevState) => [...prevState, client]);
+    console.log(clients);
+  }
 
   return (
     <div>
       <h1>EVPro Full-stack Test</h1>
-      <NewClient />
+      <NewClient onAddClient={addClientHandler} />
       {clients && <ClientList clients={clients} />}
     </div>
   );

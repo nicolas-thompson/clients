@@ -3,9 +3,11 @@ import React, { useState } from "react";
 const NewClientForm = props => {
 
   const [client, setClient] = useState({
+    _id: Math.random().toString(),
     name: "",
     email: "",
-    company: ""
+    createdDate: new Date(),
+    company: "",
   });
 
   const nameChangeHandler = event => {
@@ -20,11 +22,11 @@ const NewClientForm = props => {
 
   const submitHandler = event => {
     event.preventDefault();
-    console.log(client);
+    props.onSaveClientData(client);
     setClient({
       name: "",
       email: "",
-      company: ""
+      company: "",
     });
   }
 
