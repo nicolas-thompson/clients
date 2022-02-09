@@ -1,25 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 
 const NewClientForm = props => {
-  return <form>
-    <div>
+
+  const [client, setClient] = useState({
+    name: "",
+    email: "",
+    company: ""
+  });
+
+  const nameChangeHandler = event => {
+    setClient((prevState) => ({ ...prevState, name: event.target.value }));
+  }
+  const emailChangeHandler = event => {
+    setClient((prevState) => ({ ...prevState, email: event.target.value }));
+  }
+  const companyChangeHandler = event => {
+    setClient((prevState) => ({ ...prevState, company: event.target.value }));
+  }
+
+  const submitHandler = event => {
+    event.preventDefault();
+    console.log(client);
+    setClient({
+      name: "",
+      email: "",
+      company: ""
+    });
+  }
+
+  return (
+    <form onSubmit={submitHandler}>
       <div>
-        <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" />
+        <div>
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" value={client.name} id="name" onChange={nameChangeHandler} />
+        </div>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" value={client.email} id="email" onChange={emailChangeHandler} />
+        </div>
+        <div>
+          <label htmlFor="company">Company</label>
+          <input type="text" name="company" value={client.company} id="company" onChange={companyChangeHandler} />
+        </div>
       </div>
       <div>
-        <label htmlFor="email">Email</label>
-        <input type="text" name="email" id="email" />
+        <button type="submit">Add Client</button>
       </div>
-      <div>
-        <label htmlFor="company">Company</label>
-        <input type="text" name="company" id="company" />
-      </div>
-    </div>
-    <div>
-      <button type="submit">Add Client</button>
-    </div>
-  </form>
+    </form>
+  );
 };
 
 
