@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const clientRoutes = require('./routes/client.js');
 
@@ -16,4 +17,6 @@ app.use((req, res, next) => {
 
 app.use('/client', clientRoutes);
 
-app.listen(3001);
+mongoose.connect('mongodb+srv://nicolas:odoj8pog@cluster0.lyjgw.mongodb.net/clients?retryWrites=true&w=majority').then(result => {
+  app.listen(3001);
+}).catch(err => { console.log(err) });

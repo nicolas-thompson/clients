@@ -31,13 +31,14 @@ const App = () => {
       body: JSON.stringify({
         name: client.name,
         email: client.email,
+        createdDate: new Date(),
         company: client.company,
-
       })
     }).then(res => {
       if (res.status !== 200 && res.status !== 201) {
-        throw new Error('Creating a new client failed');
+        throw new Error('Creating a new client failed here');
       }
+      console.log(res);
       return res.json();
     }).then(resData => {
       setClients((prevState) => [...prevState, resData.client]);
