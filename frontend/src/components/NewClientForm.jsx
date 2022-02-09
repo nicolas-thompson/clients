@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import css from "./NewClientForm.module.css";
+
 const NewClientForm = props => {
 
   const [client, setClient] = useState({
@@ -32,21 +34,21 @@ const NewClientForm = props => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div>
-        <div>
+      <div className={css['new-client__controls']}>
+        <div className={css['new-client__control']}>
           <label htmlFor="name">Name</label>
           <input type="text" name="name" value={client.name} id="name" onChange={nameChangeHandler} />
         </div>
-        <div>
+        <div className={css['new-client__control']}>
           <label htmlFor="email">Email</label>
           <input type="text" name="email" value={client.email} id="email" onChange={emailChangeHandler} />
         </div>
-        <div>
+        <div className={css['new-client__control']}>
           <label htmlFor="company">Company</label>
           <input type="text" name="company" value={client.company} id="company" onChange={companyChangeHandler} />
         </div>
       </div>
-      <div>
+      <div className={css['new-client__actions']}>
         <button type="submit">Add Client</button>
       </div>
     </form>

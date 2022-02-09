@@ -1,6 +1,7 @@
 import React from "react";
 
 import NewClientForm from "./NewClientForm";
+import css from "./NewClient.module.css";
 
 const NewClient = props => {
   const onSaveClientDataHandler = (enteredClientData) => {
@@ -11,7 +12,7 @@ const NewClient = props => {
     props.onAddClient(clientData);
   };
 
-  return <div>
+  return <div className={css['new-client']}>
     <NewClientForm onSaveClientData={onSaveClientDataHandler} />
   </div>
 };

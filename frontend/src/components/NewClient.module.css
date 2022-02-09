@@ -1,0 +1,38 @@
+.new-client {
+  background-color: #928f9b;
+  padding: 1rem;
+  margin: 2rem auto;
+  width: 50rem;
+  max-width: 95%;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}
+
+.new-client button {
+  font: inherit;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  border: 1px solid #d1ced3;
+  background-color: #141314;
+  color: white;
+  border-radius: 12px;
+  margin-right: 1rem;
+}
+
+.new-client button:hover,
+.new-client button:active {
+  background-color: #535253;
+  border-color: #d1ced3;
+}
+
+.new-client button.alternative {
+  color: #220131;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.new-client button.alternative:hover,
+.new-client button.alternative:active {
+  background-color: #706e72;
+}
