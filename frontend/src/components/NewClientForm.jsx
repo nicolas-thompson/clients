@@ -36,15 +36,15 @@ const NewClientForm = props => {
       <div className={css['new-client__controls']}>
         <div className={css['new-client__control']}>
           <label htmlFor="name">Name</label>
-          <input type="text" name="name" value={client.name} id="name" onChange={nameChangeHandler} />
+          <input type="text" name="name" value={client.name} id="name" onChange={nameChangeHandler} required />
         </div>
         <div className={css['new-client__control']}>
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" value={client.email} id="email" onChange={emailChangeHandler} />
+          <input type="text" name="email" value={client.email} id="email" onChange={emailChangeHandler} required />
         </div>
         <div className={css['new-client__control']}>
           <label htmlFor="company">Company</label>
-          <input type="text" name="company" value={client.company} id="company" onChange={companyChangeHandler} />
+          <input type="text" name="company" value={client.company} id="company" onChange={companyChangeHandler} required />
         </div>
       </div>
       <div className={css['new-client__actions']}>
