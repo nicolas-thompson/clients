@@ -3,9 +3,18 @@ const { validationResult } = require('express-validator/check');
 const Client = require('../models/client');
 
 exports.getClients = (req, res, next) => {
-  res.status(200).json({
-    clients: [{ _id: 1, name: 'Nicolas Thompson', email: 'mail@nicolasthompson.com', createdDate: new Date(), company: 'Thompson Software Ltd' }]
-  });
+  Client.find()
+    .then(clients => {
+      res
+        .status(200)
+        .json({ message: 'Fetched clients successfully.', clients: clients });
+    })
+    .catch(err => {
+      if (!err.statusCode) {
+        err.statusCode = 500;
+      }
+      next(err);
+    });
 };
 
 exports.createClient = (req, res, next) => {
